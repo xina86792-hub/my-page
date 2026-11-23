@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喜乐彩票</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #fef6e8, #fff);
+            min-height: 100vh;
+        }
+
+        /* 顶部客服栏 */
+        .top-notice {
+            text-align: center;
+            padding: 12px 0;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .notice-tag {
+            display: inline-block;
+            background: #10b981;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        /* 主导航栏 */
+        .header {
+            background: linear-gradient(to right, #990000, #b91c1c);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 12px 12px 0 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-box {
+            background: #fcd34d;
+            color: #990000;
+            font-weight: bold;
+            font-size: 24px;
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text h2 {
+            font-size: 20px;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .header-btn {
+            background: #fcd34d;
+            color: #990000;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* 主内容容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* 日期时间 */
+        .datetime {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .date {
+            font-size: 16px;
+            color: #b91c1c;
+        }
+
+        .time {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin: 8px 0;
+        }
+
+        .week {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* 文字标签行 */
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .tag.ai {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        /* 内容区 */
+        .content-row {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 300px;
+            background: #fef9ef;
+            border-radius: 10px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .qr-placeholder {
+            width: 140px;
+            height: 140px;
+            background: #e5e7eb;
+            margin: 16px auto;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            border: 1px dashed #ccc;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            color: #b91c1c;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f9fafb;
+            padding: 10px 16px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+
+        .copy-btn {
+            background: #fcd34d;
+            border: none;
+            padding: 4px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .btn.primary {
+            background: #b91c1c;
+            color: white;
+        }
+
+        .btn.secondary {
+            background: #fcd34d;
+            color: #92400e;
+        }
+
+        /* 底部标签行 */
+        .bottom-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* 右侧聊天框 */
+        .chat-box {
+            width: 300px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .chat-header {
+            background: #b91c1c;
+            color: white;
+            padding: 10px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .chat-body {
+            height: 160px;
+            padding: 14px;
+            background: #fafafa;
+            overflow-y: auto;
+            font-size: 13px;
+        }
+
+        .chat-input-area {
+            display: flex;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .chat-input {
+            flex: 1;
+            border: none;
+            padding: 10px;
+            outline: none;
+        }
+
+        .send-btn {
+            background: #b91c1c;
+            color: white;
+            border: none;
+            padding: 0 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部客服栏 -->
+    <div class="top-notice">
+        <span class="notice-tag">客服在线 · 10:00 - 22:00（北京时间）</span>
+    </div>
+
+    <!-- 头部导航 -->
+    <div class="header">
+        <div class="logo-area">
+            <div class="logo-box">示</div>
+            <div class="logo-text">
+                <h2>喜乐彩票</h2>
+                <p>下载小聊xiaoliao.im 服务器 XL529 添加老师：aaaaaaxin</p>
+            </div>
+        </div>
+        <button class="header-btn">喜乐彩票</button>
+    </div>
+
+    <!-- 主内容 -->
+    <div class="container">
+        <!-- 日期时间 -->
+        <div class="datetime">
+            <div class="date" id="date">2026.11.22</div>
+            <div class="time" id="time">21:00:00</div>
+            <div class="week" id="week">星期日</div>
+        </div>
+
+        <!-- 标签行 -->
+        <div class="tag-row">
+            <span class="tag">下载任小聊</span>
+            <span class="tag">网址</span>
+            <span class="tag">xiaoliao.im</span>
+            <span class="tag">添加老师</span>
+            <span class="tag">aaaaaaxin</span>
+            <span class="tag">进群看计划</span>
+            <span class="tag">领取福利</span>
+            <span class="tag ai">一对一指导</span>
+        </div>
+
+        <!-- 主要内容行 -->
+        <div class="content-row">
+            <!-- 左侧卡片 -->
+            <div class="card">
+                <h3>扫码联系我们</h3>
+               <img src="下载.png" alt="扫码联系我们" class="qr-img">
+                <p style="font-size:12px; color:#888;">保存图片扫码</p>
+            </div>
+
+            <!-- 右侧信息区 -->
+            <div style="flex:1; min-width:300px;">
+                <div class="info-row">
+                    <span>服务器</span>
+                    <span>XL529</span>
+                    <button class="copy-btn">复制</button>
+                </div>
+                <div class="info-row">
+                    <span>添加小聊号</span>
+                    <span>aaaaaaxin</span>
+                    <button class="copy-btn">复制</button>
+                </div>
+                <div class="btn-row">
+                    <button class="btn primary">在线咨询</button>
+                    <button class="btn secondary">复制网址浏览器打开下载任小聊</button>
+                </div>
+                <p style="text-align:center; margin-top:12px; font-size:13px; color:#666;">仅供学习演示</p>
+
+                <!-- 聊天框 -->
+                <div class="chat-box">
+                    <div class="chat-header">
+                        <span>在线咨询</span>
+                        <span style="cursor:pointer;">×</span>
+                    </div>
+                    <div class="chat-body" id="chatBody">
+                        <p style="background:#e5e7eb; padding:6px 10px; border-radius:12px; margin-bottom:8px; display:inline-block;">你好，有什么可以帮您？</p>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="输入消息...">
+                        <button class="send-btn" id="sendBtn">发送</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部标签 -->
+        <div class="bottom-tags">
+            <span class="tag">下载</span>
+            <span class="tag">任小聊</span>
+            <span class="tag">添加老师</span>
+            <span class="tag">领取福利</span>
+            <span class="tag">进群看计划</span>
+            <span class="tag">日入百万不是梦</span>
+        </div>
+
+        <div class="footer-note">
+            本页面仅作布局与样式学习演示使用 · 不含任何博彩、金融交易等违规功能 · 理性学习 远离非法平台
+        </div>
+    </div>
+
+    <script>
+        // 更新时间
+        function updateTime() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const weeks = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+
+            document.getElementById('date').textContent = `${year}.${month}.${day}`;
+            document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('week').textContent = weeks[now.getDay()];
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // 简单聊天功能
+        const chatInput = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const chatBody = document.getElementById('chatBody');
+
+        function sendMessage() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            const msgEl = document.createElement('p');
+            msgEl.style = "background:#b91c1c; color:white; padding:6px 10px; border-radius:12px; margin:6px 0 6px auto; max-width:80%;";
+            msgEl.textContent = text;
+            chatBody.appendChild(msgEl);
+            chatInput.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            // 自动回复
+            setTimeout(() => {
+                const replyEl = document.createElement('p');
+                replyEl.style = "background:#e5e7eb; padding:6px 10px; border-radius:12px; margin-bottom:8px; display:inline-block;";
+                replyEl.textContent = "任小聊下载网址：xiaoliao.im 服务器：XL529 添加老师小聊号：aaaaaaxin  名师指导 这里不回复";
+                chatBody.appendChild(replyEl);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 800);
+        }
+
+        sendBtn.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', e => e.key === 'Enter' && sendMessage());
+    </script>
+</body>
+</html>
